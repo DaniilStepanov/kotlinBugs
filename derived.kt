@@ -1,9 +1,9 @@
-fun box() {
-    val three: Any = TODO()
+fun main() {
+    val three = 3
 
-    open class Local(val one: Int) {
-        fun value() = "$three$one"
+    open class Local {
+        val a = three
     }
 
-    data class Derived(val two: Int) : Local(1)
+    data class Derived(val b: Int) : Local()
 }
