@@ -11,6 +11,10 @@ td {
   background: #EFEFB0;
   vertical-align: top;
 }
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
 hr {
   border: 1px solid black;
   border-collapse: collapse;
@@ -19,13 +23,13 @@ hr {
 </head>
 <body><h1></h1>
 <p><p><b>JVM </b>
-: tmp/qswqdiq0.jar
+: tmp/tmp0.jar
 </p>
 <p><b>JVM -Xuse-ir</b>
-: tmp/qswqdiq1.jar
+: tmp/tmp1.jar
 </p>
 </p>
-<h1>CLASS test/Test</h1>
+<h1>CLASS a/MultifileClass</h1>
 <p><p><b>JVM </b>
 : [public, final, super]
 </p>
@@ -33,12 +37,12 @@ hr {
 : [public, final, super]
 </p>
 </p>
-<h2>&gt; METHOD getZ$default(IILjava/lang/Object;)I</h2>
+<h2>&gt; METHOD getOK$annotations()V</h2>
 <p><p><b>JVM </b>
-: [public, static, synthetic]
+: [public, static, synthetic, deprecated]
 </p>
 <p><b>JVM -Xuse-ir</b>
-: [public, static, final]
+: [public, static, deprecated]
 </p>
 </p>
 <table><tr><th>Property</th>
@@ -46,8 +50,8 @@ hr {
 <th>JVM -Xuse-ir</th>
 </tr>
 <tr><td>method.access</td>
-<td><code>1000000001001 [public, static, synthetic]</code></td>
-<td><code>11001 [public, static, final]</code></td>
+<td><code>100001000000001001 [public, static, synthetic, deprecated]</code></td>
+<td><code>100000000000001001 [public, static, deprecated]</code></td>
 </tr>
 </table>
 &nbsp;
