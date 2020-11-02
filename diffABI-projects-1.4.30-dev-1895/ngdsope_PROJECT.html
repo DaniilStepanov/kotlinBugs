@@ -23,13 +23,13 @@ hr {
 </head>
 <body><h1></h1>
 <p><p><b>JVM </b>
-: tmp/tmp0.jar
+: tmp/azdndth0.jar
 </p>
 <p><b>JVM -Xuse-ir</b>
-: tmp/tmp1.jar
+: tmp/azdndth1.jar
 </p>
 </p>
-<h1>CLASS WithNative$Companion</h1>
+<h1>CLASS Fun</h1>
 <p><p><b>JVM </b>
 : [public, final, super]
 </p>
@@ -41,8 +41,19 @@ hr {
 <table><tr><th>JVM </th>
 <th>JVM -Xuse-ir</th>
 </tr>
-<tr><td><code>  // jvmSignature: bar(Ljava/lang/Double;Ljava/lang/Double;)Ljava/lang/Long;</code><br></td>
-<td><code>  // jvmSignature: bar(DD)J</code><br></td>
+<tr><td><code>  // jvmSignature: invoke(IIIIIIIIIIIIIIIIIIIIIIIIIIIIII)Ljava/lang/Integer;</code><br></td>
+<td><code>  // jvmSignature: invoke(IIIIIIIIIIIIIIIIIIIIIIIIIIIIII)I</code><br></td>
+</tr>
+</table>
+&nbsp;
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>invoke(IIIIIIIIIIIIIIIIIIIIIIIIIIIIII)I [public]</code></td>
+</tr>
+<tr><td><code>invoke(IIIIIIIIIIIIIIIIIIIIIIIIIIIIII)Ljava/lang/Integer; [public]</code></td>
+<td><code>---</code></td>
 </tr>
 </table>
 &nbsp;
