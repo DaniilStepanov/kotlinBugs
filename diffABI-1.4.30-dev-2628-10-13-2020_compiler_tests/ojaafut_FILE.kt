@@ -1,0 +1,34 @@
+// Bug happens on JVM , JVM -Xuse-ir
+// FILE: tmp0.kt
+
+class Test {
+
+    companion object {
+
+        public val prop1 : Int = 10
+
+        public var  prop2 : Int = 11
+            private set
+
+        public val prop3: Int = 12
+            get() {
+                return field
+            }
+
+        var prop4 : Int = 13
+
+        fun incProp4():Unit =TODO()
+
+
+        public var prop5 : Int = 14
+
+        public var prop7 : Int = 20
+            set(i: Int) {
+                field++
+            }
+    }
+
+}
+
+
+fun box(): String =TODO()
