@@ -1,3 +1,0 @@
-class Kotlin {
-    object Int
-}
