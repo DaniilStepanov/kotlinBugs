@@ -1,0 +1,52 @@
+// Bug happens on JVM , JS 
+// FILE: tmp0.kt
+
+
+import kotlin.properties.*
+import kotlin.reflect.*
+import kotlin.math.*
+var order: String = ""
+
+fun a(i: Int): Int? {
+    order += "a"
+    return i
+}
+
+fun b(i: Int = 21): Int {
+    order += "b"
+    return i
+}
+
+inline fun evaluateAndCheckOrder(marker: String = "qfolj", expectedValue: Boolean, expectedOrder: String = "tacvu", expr: () -> Boolean) {
+    order = ""
+    val actualValue = expr()
+    if (actualValue != expectedValue) {
+println("""THEN""");
+throw AssertionError("$marker: Expected: $expectedValue, actual: $actualValue")
+}
+    if (order != expectedOrder) {
+println("""THEN""");
+throw AssertionError("$marker, order: Expected: '$expectedOrder', actual: '$order'")
+}
+}
+
+val nn: Int? = null
+
+fun box(): String {
+    evaluateAndCheckOrder("1 == 1", true.or(true), "ab") { a(1) == b(1) }
+    evaluateAndCheckOrder("1 == 2", false, "ab") { a(1) == b(2) }
+    evaluateAndCheckOrder("1 != 1", false, "ab") { a(1) != b(1) }
+    evaluateAndCheckOrder("1 != 2", true, "ab") { a(1) != b(2) }
+
+    evaluateAndCheckOrder("!(1 == 2)", true, "ab") { !(a(1) == b(2)) }
+    evaluateAndCheckOrder("!(1 == 1)", false, "ab") { !(a(1) == b(1)) }
+    evaluateAndCheckOrder("!(1 != 2)", false, "ab") { !(a(1) != b(2)) }
+    evaluateAndCheckOrder("!(1 != 1)", true, "ab") { !(a(1) != b(1)) }
+
+    evaluateAndCheckOrder("null == 1", false, "a") { nn == a(1) }
+    evaluateAndCheckOrder("null != 1", true, "a") { nn != a(1) }
+    evaluateAndCheckOrder("!(null == 1)", true, "a") { !(nn == a(1)) }
+    evaluateAndCheckOrder("!(null != 1)", false, "a") { !(nn != a(1)) }
+
+    return "OK"
+}
